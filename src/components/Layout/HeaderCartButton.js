@@ -5,10 +5,11 @@ import { useContext } from "react";
 import CartContext from "../../store/cart-context";
 
 const HeaderCartButton = (props) => {
-  const cartCtx = useContext(CartContext);
-  const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
-    return curNumber + item.amount;
-  }, 0);
+  const cartCtx = useContext(CartContext);//creates a shallow copy of context
+  let numberOfCartItems =  0;
+  cartCtx.items.forEach(item =>{
+    numberOfCartItems = numberOfCartItems + Number(item.amount)
+  })
   return (
     <button className={classes.button} onClick={props.onClick}>
       <span className={classes.icon}>

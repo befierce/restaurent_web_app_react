@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 1rem 0;
   }
   
@@ -42,5 +42,22 @@
   
   .actions .button {
     background-color: #8a2b06;
-    color: white;
+    color: rgb(11, 5, 5);
+  }
+
+
+  .Button{
+    background-color:#f9f6f5;
+    padding:0.1rem 1rem;
+    box-shadow: #5a1a01;
+    border-radius: 4px;
+    position: relative ;
+    left:500px;
+    bottom:30px;
+    /* position: inherit; */
+  }
+  .Button:hover{
+    color:#f9f6f5;
+    background-color:#8a2b06;
+    cursor: pointer;
   }

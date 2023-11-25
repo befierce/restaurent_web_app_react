@@ -1,0 +1,19 @@
+
+
+.itemName {
+    
+    font-weight: bold;
+  }
+  
+  .itemPrice {
+    color: green;
+    margin-right:20px
+  }
+  
+  .itemAmount {
+    padding: 0.1rem 0.3rem;
+    border: 2px solid black;
+    background-color: rgb(226, 77, 77);
+    /* Add more styles as needed */
+  }
+  

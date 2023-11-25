@@ -16,7 +16,6 @@ const ModalOverlay = (props) => {
 
 const portalElement = document.getElementById("overlays");
 const Modal = (props) => {
-  console.log("lollyprops",props.onClick)
   return (
     <>
       {ReactDOM.createPortal(<Backdrop onClose={props.onClick}/>, portalElement)}
