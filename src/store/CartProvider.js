@@ -6,7 +6,7 @@ const CartProvider = props=>{
     const [items,updateItems] = useState([]);
     const addItemToCartHandler = (item) => {
         const itemIndex = items.findIndex((cartItem) => cartItem.id === item.id);
-    
+        console.log(itemIndex)
         if (itemIndex !== -1) {
             updateItems((prevItems) => {
                 const updatedItems = [...prevItems];
@@ -21,9 +21,31 @@ const CartProvider = props=>{
             updateItems((prevItems) => [...prevItems, { ...item, amount: 1 }]);
         }
     };
-    const removeItemFromCartHandler = (id)=>{
+    const removeItemFromCartHandler = (item) => {
 
-    }
+
+        console.log(item)
+        updateItems((prevItems) => {
+            const itemIndex = prevItems.findIndex((cartItem) => cartItem.id === item.id);
+            console.log(itemIndex)
+            if (itemIndex === -1) {
+                return prevItems;
+            }
+    
+            const updatedItems = [...prevItems];
+            if (updatedItems[itemIndex].amount > 1) {
+                updatedItems[itemIndex] = {
+                    ...updatedItems[itemIndex],
+                    amount: updatedItems[itemIndex].amount - 1,
+                };
+            } else {
+                updatedItems.splice(itemIndex, 1);
+            }
+    
+            return updatedItems;
+        });
+    };
+    
 
     const cartContext = {
         items: items || [],
@@ -31,7 +53,7 @@ const CartProvider = props=>{
         addItem: addItemToCartHandler,
         removeItem: removeItemFromCartHandler,
     }
-    console.log("here is the cart context",cartContext)
+    // console.log("here is the cart context",cartContext)
     return <CartContext.Provider value={cartContext}>
         {props.children}
     </CartContext.Provider>

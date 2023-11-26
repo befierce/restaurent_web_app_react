@@ -7,7 +7,7 @@ import Card from "../UI/Card";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-
+  console.log("props while adding item to cart",props)
   const totalPrice = cartCtx.items.reduce((accumulator, item) => {
     return accumulator + item.price * item.amount;
   }, 0);
